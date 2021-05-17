@@ -17,7 +17,7 @@
   <!-- JQuery -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-  <script src="/javascripts/profile.js"></script>
+  <script src="/javascripts/registo.js"></script>
 
 </head>
 
@@ -28,23 +28,24 @@
       <section class="register-box">
         <div  class="coluna" class="coluna">
           <label>Name</label>
-          <label>Username</label>
+          <label>Password</label>
           <label>Email</label>
           <label>Date of birth</label>
           <label>Gender</label>
         </div>
         <div class="coluna">
-          <input class="word" type="text" id="name" required/>
           <input class="word" type="text" id="username2" required/>
+          <input class="word" type="text" id="password2" required/>
           <input class="word" type="text" id="email" required/>
-          <input class="word" type="date" id="date" required/>
-          <select id="genre" required>
-            <option selected value="M">Male</option>
-            <option value="F">Female</option>
+          <input class="word" type="date" id="birthday" required/>
+          <select id="gender" required>
+            <option selected value="M">Masculino
+            </option>
+            <option value="F">Feminino</option>
           </select>
         </div>  
       </section>
-      <input type="button" class="btn-register" value="REGISTER" onclick="buttonRegister();"/>
+      <input type="button" class="btn-register" value="REGISTER" onclick="register();"/>
       <p id="result"></p>
     </section>
   </main>
