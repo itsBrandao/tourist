@@ -4,12 +4,12 @@
 }
   
 body {
-    font-family: 'PT Sans', cursive;
+    font-family: 'PT Sans', sans-serif;
     background-color: #F7F7F7;
     display: grid;
     grid-template-areas: "nav main" "f f";
     grid-template-columns: 50% auto;
-    height: 1750px;
+    height: 1300px;
 }
 
 /* MAIN */
