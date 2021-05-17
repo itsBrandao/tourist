@@ -1,0 +1,60 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+  
+body {
+    font-family: 'PT Sans', sans-serif;
+    background-color: #F7F7F7;
+}
+
+.header {
+    margin-right: 1000px;
+}
+
+.header-btn {
+    background-color: #EDEDED;
+    border-radius: 100px;
+    color: #737373;
+    font-weight: bold;
+    transition: 0.3s;
+    padding: 15px 50px 15px 50px;
+    margin: 10px 0px 10px 70px;
+}
+
+footer {
+    padding: 20px;
+    color: grey;
+    text-align: center;
+    margin-top: 220px;
+}
+
+header {
+    display: flex;
+
+}
+
+hr {
+    width: 85%;
+    margin-top: 5px;
+    border-radius: 10px;
+    height: 3px;
+    background-color: #737373;
+}
+
+.linha {
+    display: flex;
+    justify-content: center;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+#text {
+    font-size: 200px;
+}
+
+
