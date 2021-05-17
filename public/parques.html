@@ -1,0 +1,42 @@
+<html>
+  <head>
+     <!-- CSS -->
+    <link rel="stylesheet" href="./stylesheets/parques.css">
+
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  
+    <!-- JS -->
+    <script src="javascripts/parques.js"></script>
+
+
+    <!--Css & JavaScript do mapa-->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin=""></script>
+
+
+    <title>Conta</title>
+  </head>
+  <body>
+    <header class= "header">
+        <section class="topBoxLogo"> <img id="smartstopLogo" src="./icons/smartstopLogo.png" alt="smartstopLogo"> </section>
+        <section class="topBoxTitulo"><h1>Parques</h1></section>
+        <section class= "topBoxAvatar">
+            <div class="dropdown">
+                <div class="tbaChild">
+                    <h3 id="userName"></h3>
+                    <img id="logoIcon" src="./icons/logoIcon.png" alt="logoIcon">
+                </div>
+                <div class="dropdown-content" id="userDropBox"></div>
+            </div>
+        </section>
+    </header> 
+    <section id="map"></section>
+    <section id="listaParques"></section>
+  </body>
+</html>
+

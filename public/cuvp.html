@@ -1,0 +1,83 @@
+<html>
+  <head>
+    <head>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="./stylesheets/cuvp.css">
+ 
+      <!-- JQuery -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    
+      <!-- JS -->
+      <script src="javascripts/cupv.js"></script>
+ 
+     <title>SmartStop</title>
+   </head>
+
+    <title>SmartStop</title>
+  </head>
+  <body>
+    <header class= "header">
+      <section class="topBoxLogo"> <img id="smartstopLogo" src="./icons/smartstopLogo.png" alt="smartstopLogo"> </section>
+      <section class="topBoxTitulo"><h1> Métodos de pagamento e Veiculos</h1></section>
+      <section class= "topBoxAvatar">
+          </div>
+      </section>
+  </header> 
+  <section class="main">
+    <section class="pagamento">
+
+      <div class="subTituloIcon">
+        <img src="./icons/cardIcon.png" alt="cardIcon" class="icon">
+        <h3 style="width:300px ;">Métodos de pagamento</h3>
+      </h3>
+      </div>
+      <div class="lableInput">
+        <div class="boxLabel">
+          <label class="label">Nome do titular:</label>
+          <label class="label">Numero do cartão:</label>
+          <label class="label">Data do cartão:</label>
+          <label class="label">CVC code:</label>
+        </div>
+        <div class="boxInput">
+          <input type="text" placeholder="Escreva o nome" class="input" id="nTitular">
+          <input type="text" placeholder="Digite o numero" class="input" id="nCartao">
+          <input type="date"  class="input" id="dCartao">
+          <input type="password" placeholder="CVC" class="input" id="cvcCode">
+        </div>
+      </div>
+    </section>
+    <section class="veiculo">
+      <div class="subTituloIcon">
+        <img src="./icons/carIcon.png" alt="carIcon" class="icon">
+        <h3 style="width:300px ;">Veículos</h3>
+      </div>
+      <div class="lableInput">
+        <div class="boxLabel">
+          <label class="label">Marca do veículo:</label>
+          <label class="label">Modelo do veículo:</label>
+          <label class="label">Ano do veículo:</label>
+          <label class="label">Matricula do Veículo:</label>
+        </div>
+        <div class="boxInput">
+          <input type="text" placeholder="Selecione da marca do veiculo" class="input" id="vMarca">
+          <input type="text" placeholder="Selecione o modelo do veiculo" class="input" id="vModelo">
+          <input type="date"  class="input" id="vData">
+          <input type="text" placeholder="Escreva a matricula do veiculo" class="input" id="vMatricula">
+        </div>
+      </div>
+    </section>
+  </section>
+
+
+
+
+
+
+  <section class="btnBox">
+    <button class="btn" onclick="registo()">Registar</button>
+  </section>
+  
+  </body>
+</html>
+

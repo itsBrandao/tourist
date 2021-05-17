@@ -1,0 +1,118 @@
+body{
+    color: black;
+    background-color: #FAF9FF;
+  
+  
+}
+  
+
+.imgQSN{
+    display: flex;
+    justify-content: center;
+}
+.img{
+    padding-top: 5%;
+    width: 50%;
+  
+}
+  
+  .qsn{
+    padding-top: 5%;
+    width: 50%;
+  }
+  
+  .car{
+    padding-top: 10%;
+    width: 50%;
+  
+  }
+  #smartstopLogo {
+    padding: 5px;
+  }
+  header{
+    background-color: #eed029;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    z-index: 1100;
+    min-width: 105px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown-content a:hover {background-color: #f1f1f1}
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+  .selected {
+    background-color: #CECECE;
+  }
+  
+  
+ 
+
+.bottomBox{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 5%;
+
+}
+
+.mPagamento,.veiculo,.descontos, .hParque{
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 20px;
+}
+.icon{
+  width: 50px;
+  height: 50px;
+  padding-right: 20px;
+}
+.avatarImg{
+  padding-top: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#avatar{
+  margin-top: 25px;
+  width: 13%;
+}
+
+.topBoxLogo{
+  width: 33.3%;
+}
+.topBoxTitulo{
+  width: 33.3%;
+  display: flex;
+  justify-content:center;
+}
+.topBoxAvatar{
+  width: 33.3%;
+  display: flex;
+  justify-content: right;
+}
+#logoIcon{
+width: 100px;
+}
+.tbaChild{
+  display: flex;
+  align-items: center;
+}
