@@ -15,14 +15,18 @@
 
 <body>
   <nav>
-    <img src="images/logo.png" width="200" height="200"/>
-    <h1 id="title">Tourist</h1>
+    <h1 id="title">Rotas culturais feitas</h1>
+    <h1 id="title">à tua medida.</h1>
+    <img src="images/logo_tourist2.png" width="200" height="200"/>
   </nav>
   <main>
-      <h1>A tua nova melhor experiência cultural</h1>
-      <h2>Inscreve-te no Tourist agora mesmo.</h2>
-      <a href="login.html" class="btn-login">Entra</a>
-      <a href="registo.html" class="btn-register">Regista-te</a>
+      <div class="login-box">
+        <h1 id="text1">Inscreve-te agora</h1>
+        <input class="credentials" placeholder="username" id="username" type="text" />
+        <input class="credentials" placeholder="password" id="password" type="password" />
+        <button class="btn-login" onclick='login()'><h3>Entrar</h3></button>
+        <button class="btn-register" onclick="register()"><h3>Registar</h3></button>
+      </div>
   </main>
   <footer>
     <section>
