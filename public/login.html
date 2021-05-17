@@ -1,45 +1,42 @@
 <html>
-  <head>
-     <!-- CSS -->
-    <link rel="stylesheet" href="./stylesheets/login.css">
 
-    <!-- JQuery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  
-    <!-- JS -->
-    <script src="javascripts/login.js"></script>
+<head>
+  <title></title>
+  <link rel="stylesheet" href="stylesheets/style.css">
 
+  <!-- Montserrat Font -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700&display=swap" rel="stylesheet"> 
 
-    <title>SmartStop</title>
-  </head>
-  <body>
-    <header class= "header">
-      <section class="topBoxLogo"> <img id="smartstopLogo" src="./icons/smartstopLogo.png" alt="smartstopLogo"> </section>
-      <section class="topBoxTitulo"><h1>Login</h1></section>
-      <section class= "topBoxAvatar">
-          <div class="dropdown">
-              <div class="tbaChild">
-                <img id="hamburgerIcon" src="./icons/hamburgerIcon.png" alt="hamburgerIcon">
-              </div>
-              <div class="dropdown-content" id="userDropBox">
-                <a href='index.html'>Início</a>
-                <a href='registo.html'>Registo</a>
-              </div>
-          </div>
-      </section>
-  </header> 
-    <div class="boxInputBtn">
-      <div class="inputBox">
-        <input type="text" placeholder="Escreva o seu email" class="input" id="email">
-        <input type="password" placeholder="A sua senha" class="input" style="margin-top: 10%;" id="pw">
-      </div>
-      <div class="btnBox">
-          <button class="btn" onclick='login()'>Login</button>
-      </div>
-    </div>
-    <div id="img">
-      <img src="./imagens/loginIMG.png" alt="loginIMG">
-    </div>
-  </body>
+  <!-- icons -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+  <!-- JQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <script src="javascripts/login.js"></script>
+</head>
+
+<body>
+  <header>
+
+  </header>
+ <main>
+    <input placeholder="username" id="username" type="text" />
+    <input placeholder="password" id="password" type="password" />
+    <button onclick='login()'>Login</button>
+<br>
+    <input type="text" id="email" />
+    <input placeholder="username" id="username2" type="text" />
+    <input type="date" id="birthday" />
+    <select id="gender">
+        <option value="Masculino">Masculino</option>
+        <option value="Masculino">Feminino</option>
+    </select>
+    <input placeholder="password" id="password2" type="password" />
+    <button onclick='register()'>Registo</button>
+ </main>
+ <footer>
+</footer>
+</body>
+
 </html>
-

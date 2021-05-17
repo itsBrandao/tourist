@@ -1,0 +1,85 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+  
+body {
+    font-family: 'PT Sans', cursive;
+    background-color: #F7F7F7;
+    display: grid;
+    grid-template-areas: "nav main" "f f";
+    grid-template-columns: 50% auto;
+    height: 1750px;
+}
+
+/* MAIN */
+
+nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #C4C4C4;
+    padding: 50px;
+}
+
+h1 {
+    font-size: 40px;
+}
+
+h2 {
+    margin: 40px 0px 40px 0px;
+}
+
+.btn-login {
+    background-color: white;
+    border-radius: 100px;
+    color: #C4C4C4;
+    padding: 10px 40px 10px 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    width: 45px;
+}
+
+.btn-login:hover {
+    background-color:#C4C4C4;
+    color: white;
+    border: 4px solid white;
+}
+
+.btn-register {
+    background-color: white;
+    border-radius: 100px;
+    color: #C4C4C4;
+    padding: 10px 40px 10px 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    width: 90px;
+    margin-top: 10px;
+}
+
+.btn-register:hover {
+    background-color:#C4C4C4;
+    color: white;
+    border: 4px solid white;
+}
+
+#title {
+    font-size: 60px;
+}
+
+/* FOOTER */
+
+footer {
+    display: flex;
+    padding: 20px;
+    color: grey;
+    justify-content: center;
+    grid-area: f;
+  }
