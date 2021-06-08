@@ -16,3 +16,7 @@ function novarota() {
 function rotas() {
     window.location = "rotas.html";
 }
+
+function criarrota() {
+    window.location = "criarrota.html";
+}
