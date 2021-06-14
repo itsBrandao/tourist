@@ -1,9 +1,10 @@
 
 var map;
 var user = JSON.parse(sessionStorage.getItem("user"));
-var locais = [];
+var locaisSelecionados = [];
 var markerGroup;
 var route = null;
+var locais;
 
 window.onload = function () {
 
@@ -31,7 +32,7 @@ async function loadLocais() {
 
     try {
 
-        let locais = await $.ajax({
+        locais = await $.ajax({
             url: "/api/locais",
             method: "get",
             dataType: "json"
@@ -39,8 +40,7 @@ async function loadLocais() {
 
         let html = "";
         for (let local of locais) {
-            html += "<button id='"+local.local_id+"' class='header-btn' onclick='selecionarLocal("+local.local_id+","+local.local_latitude+","+local.local_longitude+");'><h2>"+local.local_name+"</h2></button>";
-
+            html += "<button id='"+local.local_id+"' class='header-btn' onclick='selecionarLocal("+local.local_id+");'><h2>"+local.local_name+"</h2></button>";
         }
         document.getElementById("lista-locais").innerHTML = html;
 
@@ -53,48 +53,48 @@ async function loadLocais() {
 
 }
 
-function selecionarLocal(id, lat, lnt) {
+function selecionarLocal(id) {
 
-    if (verificarLocal(id)) {
+    if (locaisSelecionados.includes(id)) {
+
         document.getElementById(id).style.backgroundColor = "#EDEDED";
-        locais.pop(indexLocal(id));
-        map.removeLayer(markerGroup);
-    }
-    else {
+        locaisSelecionados.pop(locaisSelecionados.indexOf(id));
+
+    } else {
         document.getElementById(id).style.backgroundColor = "#000";
-        locais.push({id: id, lat: lat, lnt: lnt});
+        locaisSelecionados.push(id);
+
+        let latlng = getLatLnt(id);
+        let lat = latlng.split(":")[0];
+        let lnt = latlng.split(":")[1];
         L.marker(new L.LatLng(lat, lnt)).addTo(markerGroup);
         map.panTo(new L.LatLng(lat, lnt));
+
+
     }
-    console.log(markerGroup);
+
     getRoute();
 
-}
-
-function indexLocal(y) {
-
-    let result = 0;
-    for (let x in locais) {
-        if(locais[x].id == y) {
-            result = x;
-            break;
+    let aux = "";
+    for (let local1 of locais) {
+        for (let local2 of locaisSelecionados) {
+            if (local2 == local1.local_id) {
+                aux += "<div class='header-btn'>"+local1.local_name+"</div>";
+            }
         }
     }
-    return result;
+    document.getElementById("locais-selecionados").innerHTML = aux;
+
+    
 
 }
 
-function verificarLocal(y) {
-
-    let result = false;
-    for (let x in locais) {
-        if(locais[x].id == y) {
-            result = true;
-            break;
+function getLatLnt(id) {
+    for (let local of locais) {
+        if (local.local_id == id) {
+            return local.local_latitude + ":" + local.local_longitude;
         }
     }
-    return result;
-
 }
 
 function profile() {
@@ -113,8 +113,11 @@ function getRoute() {
 
     let waypoints = [];
 
-    for (let x in locais) {
-        waypoints.push(L.latLng(locais[x].lat, locais[x].lnt));
+    for (let x of locaisSelecionados) {
+        let latlng = getLatLnt(x);
+        let lat = latlng.split(":")[0];
+        let lnt = latlng.split(":")[1];
+        waypoints.push(L.latLng(lat, lnt));
     }
 
     if (route != null) { //Vai remover a rota se nao for null para não ficar duplicado
