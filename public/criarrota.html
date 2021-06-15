@@ -50,7 +50,7 @@ crossorigin=""></script>
     <hr>
   </div>
   <section style="width: 100%; display: flex; justify-content: center;">
-    <button id="save" class="header-btn"><h2>Guardar</h2></button>
+    <button id="save" onclick="openModal();" class="header-btn"><h2>Guardar</h2></button>
   </section>
   <main>
         <section class="section-map">
@@ -70,5 +70,25 @@ crossorigin=""></script>
     </section>
   </footer>
 </body>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div style="width: 100%;">
+      <span onclick="closeModal();" class="close">&times;</span>
+    </div>
+    <section style="display: flex; flex-direction: column; margin-top: 15px;">
+      <label>Nome da Rota</label>
+      <input id="nomeRota" type="text" />
+      <label>Descrição</label>
+      <textarea id="descricaoRota" rows="4" cols="50"></textarea>
+      <button onclick="guardarRota();" class="header-btn" style="padding-left: 0; margin-left: 0;">Guardar</button>
+      <h2 id="msg" style="display: none;"><h2>
+    </section>
+  </div>
+
+</div>
 
 </html>

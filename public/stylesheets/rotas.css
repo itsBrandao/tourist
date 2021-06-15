@@ -22,6 +22,16 @@ body {
     margin: 10px 0px 10px 70px;
 }
 
+.header-btn2 {
+    background-color: #EDEDED;
+    border-radius: 100px;
+    color: #737373;
+    font-weight: bold;
+    transition: 0.3s;
+    padding: 15px 200px 15px 200px;
+    margin: 10px 0px 10px 70px;
+}
+
 footer {
     padding: 20px;
     color: grey;

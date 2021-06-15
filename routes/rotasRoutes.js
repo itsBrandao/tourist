@@ -17,4 +17,9 @@ router.post('/:id/newLocal', async function(req, res, next) {
     res.status(result.status).send(result.data);
 });
 
+router.get('/', async function(req, res, next) {
+    let result = await mRotas.getRotas();
+    res.status(result.status).send(result.data);
+ });
+
 module.exports = router;

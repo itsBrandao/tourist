@@ -132,3 +132,81 @@ function getRoute() {
 
       document.getElementsByClassName("leaflet-control-container")[0].style.display = "None";
 }
+
+function openModal() {
+    document.getElementById("myModal").style.display = "block";
+}
+
+function closeModal() {
+    document.getElementById("myModal").style.display = "none";
+}
+
+async function guardarRota() {
+
+    let name = document.getElementById("nomeRota").value;
+    let desc = document.getElementById("descricaoRota").value;
+
+    if (name != "" && desc != "") {
+
+        if (locaisSelecionados.length > 0) {
+
+            let data = {
+                rota_name: name,
+                rota_description: desc,
+                rota_creator_id: user.user_id
+            }
+        
+            try {
+        
+                let result = await $.ajax({
+                    url: "/api/rotas/new",
+                    method: "post",
+                    data: JSON.stringify(data),
+                    contentType: "application/json",
+                    dataType: "json"
+                });
+
+                let idRota = result.insertId;
+
+                for (let x of locaisSelecionados) {
+
+                    data = {
+                        local_id: x,
+                        local_rota_id: idRota
+                    }
+    
+                    try {
+    
+                        result = await $.ajax({
+                            url: "/api/rotas/"+idRota+"/newLocal",
+                            method: "post",
+                            data: JSON.stringify(data),
+                            contentType: "application/json",
+                            dataType: "json"
+                        });
+    
+                    } catch (err) {
+                        console.log(err);
+                    }
+    
+                }
+                
+                document.getElementById("msg").style.display = "block";
+                document.getElementById("msg").innerHTML = "Rota criada com sucesso!";
+
+            } catch(err) {
+                console.log(err);
+                if (err.status == 404) {
+                    alert(err.responseJSON.msg);
+                }
+            }
+            
+        } else {
+            alert("Selecione locais!");
+        }
+
+    } else {
+        alert("Coloque nome e descrição!")
+    }
+
+}
