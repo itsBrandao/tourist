@@ -40,7 +40,7 @@ async function loadLocais() {
 
         let html = "";
         for (let local of locais) {
-            html += "<button id='"+local.local_id+"' class='header-btn' onclick='selecionarLocal("+local.local_id+");'><h2>"+local.local_name+"</h2></button>";
+            html += "<div id='"+local.local_id+"' class='header-btn btn-local' style='cursor: pointer;' onclick='selecionarLocal("+local.local_id+");'><h2 style='width: 100%;'>"+local.local_name+"</h2><i onclick='infoLocal("+local.local_id+");' class='fas fa-info-circle info'></i></div>";
         }
         document.getElementById("lista-locais").innerHTML = html;
 
@@ -208,5 +208,19 @@ async function guardarRota() {
     } else {
         alert("Coloque nome e descrição!")
     }
+
+}
+
+function infoLocal(id) {
+
+    sessionStorage.setItem("localId", id);
+    window.location = "infolocal.html";
+
+}
+
+function removerMarcadores() {
+
+    map.removeControl(route);
+    map.removeLayer(markerGroup);
 
 }

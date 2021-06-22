@@ -18,7 +18,7 @@ async function loadRotas() {
 
         let html = "";
         for (let rota of rotas) {
-            html += "<button id='"+rota.rota_id+"' class='header-btn2' onclick=''><h2>"+rota.rota_name+"</h2></button>";
+            html += "<button id='"+rota.rota_id+"' class='header-btn2' onclick='infoRota("+rota.rota_id+");'><h2>"+rota.rota_name+"</h2></button>";
         }
         document.getElementById("lista-rotas").innerHTML = html;
 
@@ -38,4 +38,11 @@ function novarota() {
 
 function rotas() {
     window.location = "rotas.html";
+}
+
+function infoRota(id) {
+
+    sessionStorage.setItem("rotaId", id);
+    window.location = "infoRota.html";
+
 }

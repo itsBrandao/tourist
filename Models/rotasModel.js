@@ -13,6 +13,22 @@ module.exports.getRotas = async function() {
     } 
 };
 
+module.exports.getRota = async function(id) {
+    try {
+
+        let sql = "SELECT * FROM rotas WHERE rota_id = ?";
+        let result = await pool.query(sql, [id]);
+        sql = "SELECT * FROM locaisRota R, locais L WHERE R.local_rota_id = ? AND L.local_id = R.local_id";
+        let locais = await pool.query(sql, [id]);
+        result[0].locais = locais;
+        return {status: 200, data: result[0]};
+
+    } catch (err) {
+        console.log(err);
+        return {status: 500, data: err};
+    } 
+};
+
 module.exports.newRota = async function(body) {
     try {
 

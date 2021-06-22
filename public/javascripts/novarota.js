@@ -20,3 +20,7 @@ function rotas() {
 function criarrota() {
     window.location = "criarrota.html";
 }
+
+function rotapersonalizada() {
+    window.location = "rotas.html";
+}

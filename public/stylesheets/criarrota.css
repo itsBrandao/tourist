@@ -145,3 +145,19 @@ justify-content: center;
     text-decoration: none;
     cursor: pointer;
   } 
+
+  .btn-local {
+      display: flex;
+      align-items: center;
+  }
+
+  .info {
+      margin-left: 20px;
+      font-size: 25px;
+      width: min-content;
+      text-align: right;
+  }
+
+  .info:hover {
+    color: black;
+  }
