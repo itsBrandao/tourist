@@ -5,6 +5,7 @@ var locaisSelecionados = [];
 var markerGroup;
 var route = null;
 var locais;
+var markers = [];
 
 window.onload = function () {
 
@@ -17,8 +18,6 @@ window.onload = function () {
 
 function setupMap() {
     map = L.map('mapa',{minZoom: 12}).setView(new L.LatLng(38.7476289, -9.1518309), 13);
-
-    markerGroup = L.layerGroup().addTo(map);
 
     L.tileLayer('https://api.mapbox.com/styles/v1/pcmiguel/ckhsyjp813gxb19qq3eqydsmu/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoicGNtaWd1ZWwiLCJhIjoiY2toc3lncG1zMGllajJxcGkxYnNjanVieCJ9.yfUra6VpwwsP4dGk9badRA', {
         tileSize: 512,
@@ -67,7 +66,8 @@ function selecionarLocal(id) {
         let latlng = getLatLnt(id);
         let lat = latlng.split(":")[0];
         let lnt = latlng.split(":")[1];
-        L.marker(new L.LatLng(lat, lnt)).addTo(markerGroup);
+        var marker = new L.marker(new L.LatLng(lat, lnt)).addTo(map);
+        markers.push(marker);
         map.panTo(new L.LatLng(lat, lnt));
 
 
@@ -106,7 +106,7 @@ function novarota() {
 }
 
 function rotas() {
-    window.location = "rotas.html";
+    window.location = "minhasrotas.html";
 }
 
 function getRoute() {
@@ -220,7 +220,18 @@ function infoLocal(id) {
 
 function removerMarcadores() {
 
+    //map.removeLayer(markers);
+    
+    for(var i = 0; i < markers.length; i++){
+        map.removeLayer(markers[i]);
+    }
+
     map.removeControl(route);
-    map.removeLayer(markerGroup);
+
+    for (let id of locaisSelecionados) {
+        document.getElementById(id).style.backgroundColor = "#EDEDED";
+    }
+    locaisSelecionados = [];
+    document.getElementById("locais-selecionados").innerHTML = "";
 
 }

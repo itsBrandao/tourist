@@ -91,3 +91,11 @@ function getRoute(locais) {
 
       document.getElementsByClassName("leaflet-control-container")[0].style.display = "None"; 
 }
+
+function novarota() {
+    window.location = "novarota.html";
+}
+
+function rotas() {
+    window.location = "minhasrotas.html";
+}

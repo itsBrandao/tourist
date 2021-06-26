@@ -15,4 +15,10 @@ router.post('/register', async function(req, res, next) {
    res.status(result.status).send(result.data);
 });
 
+router.get('/:id/rotas', async function(req, res, next) {
+   let id = req.params.id;
+   let result = await mUsers.getUserRotas(id);
+   res.status(result.status).send(result.data);
+});
+
 module.exports = router;

@@ -2,19 +2,23 @@ var user = JSON.parse(sessionStorage.getItem("user"));
 window.onload = function() {
 
     document.getElementById("username").innerHTML = user.user_name;
-    loadRotas();
+    loadMinhasRotas();
 
 }
 
-async function loadRotas() {
+async function loadMinhasRotas() {
 
     try {
 
         let rotas = await $.ajax({
-            url: "/api/rotas",
+            url: "/api/users/"+user.user_id+"/rotas",
             method: "get",
             dataType: "json"
         });
+
+        if (rotas.length == 0) {
+            document.getElementById("lista-rotas").innerHTML = "Nenhuma rota criada!";
+        }
 
         let html = "";
         for (let rota of rotas) {

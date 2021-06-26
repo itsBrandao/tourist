@@ -161,3 +161,14 @@ justify-content: center;
   .info:hover {
     color: black;
   }
+
+  .checked {
+    color: orange;
+  }
+
+  .feedback {
+      margin-top: 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  }

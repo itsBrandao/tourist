@@ -47,3 +47,11 @@ async function loadInfoLocal() {
     }
 
 }
+
+function novarota() {
+    window.location = "novarota.html";
+}
+
+function rotas() {
+    window.location = "minhasrotas.html";
+}

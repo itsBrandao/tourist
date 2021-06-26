@@ -36,3 +36,16 @@ module.exports.register = async function(body) {
         return {status: 500, data: err};
     } 
 };
+
+module.exports.getUserRotas = async function(id) {
+    try {
+
+        let sql = "SELECT * FROM rotas WHERE rota_creator_id = ?";
+        let result = await pool.query(sql, [id]);
+        return {status: 200, data: result};
+
+    } catch (err) {
+        console.log(err);
+        return {status: 500, data: err};
+    } 
+};

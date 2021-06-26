@@ -2,8 +2,7 @@
 
 <head>
   <title>Tourist</title>
-  <link rel="stylesheet" href="/stylesheets/profile.css">
-  <link rel="stylesheet" href="/stylesheets/login-style.css">
+  <link rel="stylesheet" href="/stylesheets/rotas.css">
   <link rel="icon" href="./images/favicon.png" type="image/png">
   
   <!-- Montserrat Font -->
@@ -17,7 +16,7 @@
   <!-- JQuery -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-  <script src="/javascripts/profile.js"></script>
+  <script src="/javascripts/minhasrotas.js"></script>
 
 </head>
 
@@ -27,21 +26,19 @@
       <button class="header-btn" onclick="novarota()"><h2>Nova Rota</h2></button>
       <button class="header-btn" onclick="rotas()"><h2>Minhas Rotas</h2></button>
     </section>
-    <button class="header-btn"><h2 id="username">Username</h2></button>
+    <button class="header-btn" onclick="profile()"><h2 id="username">Username</h2></button>
   </header>
   <div class="linha">
     <hr>
   </div>
   <main>
-    <img src="images/user.png" width="410" height="240"/>
-    <h1 id="username2">Nome de Utilizador</h1>
-    <h2 id="email">nomeutilizador@gmail.com</h2>
+    <section id="lista-rotas" style="display: flex; flex-direction: column;"></section>
   </main>
   
   <footer>
     <section>
       <img src=""/>
-      <p>&copy;  2021 Tourist. All rights reserved.</p>
+      <p>&copy; 2021 Tourist. All rights reserved.</p>
     </section>
   </footer>
 </body>

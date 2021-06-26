@@ -16,5 +16,5 @@ function novarota() {
 }
 
 function rotas() {
-    window.location = "rotas.html";
+    window.location = "minhasrotas.html";
 }
