@@ -47,6 +47,6 @@ function rotas() {
 function infoRota(id) {
 
     sessionStorage.setItem("rotaId", id);
-    window.location = "infoRota.html";
+    window.location = "inforota.html";
 
 }
