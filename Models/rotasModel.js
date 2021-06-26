@@ -54,3 +54,29 @@ module.exports.newLocalRota = async function(body) {
         return {status: 500, data: err};
     } 
 };
+
+module.exports.newFeedback = async function(body) {
+    try {
+
+        let sql = "INSERT INTO feedback(user_id, rota_id, feedback, estrelas) VALUES(?,?,?,?)";
+        let result = await pool.query(sql, [body.userId, body.rotaId, body.feedback, body.estrelas]);
+        return {status: 200, data: result};
+
+    } catch (err) {
+        console.log(err);
+        return {status: 500, data: err};
+    } 
+};
+
+module.exports.getFeedbacks = async function(id) {
+    try {
+
+        let sql = "SELECT * FROM feedback F, users U WHERE F.user_id = U.user_id AND F.rota_id = ?";
+        let result = await pool.query(sql, [id]);
+        return {status: 200, data: result};
+
+    } catch (err) {
+        console.log(err);
+        return {status: 500, data: err};
+    } 
+};

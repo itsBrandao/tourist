@@ -50,25 +50,29 @@
       <hr>
     </div>
     <main>
-      <section class="section-map">
+      <section class="section-map1">
           <div id="mapa"></div>
       </section>
       <section>
+        <h1>Descrição</h1>
         <p id="desc"></p>
+        <h1>Comentários de outros utilizadores:</h1>
+        <section id="comentarios"></section>
       </section>
     </main>
     <section class="feedback">
       
-      <label for="w3review">Comentário:</label>
-      <textarea id="w3review" name="w3review" rows="4" cols="50"></textarea> 
+      <h2>Envie-nos o seu feedback em relação a esta rota!</h2>
+      <label for="comentario">Comentário:</label>
+      <textarea id="comentario" rows="4" cols="50"></textarea> 
       <div>
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star"></span>
-        <span class="fa fa-star"></span>
+        <span class="rating__star far fa-star"></span>
+        <span class="rating__star far fa-star"></span>
+        <span class="rating__star far fa-star"></span>
+        <span class="rating__star far fa-star"></span>
+        <span class="rating__star far fa-star"></span>
       </div>
-      <button onclick="" class="header-btn" style="margin-left: 0;">Guardar</button>
+      <button onclick="enviarComentario();" class="header-btn" style="margin-left: 0;">Enviar</button>
 
     </section>
     <footer>

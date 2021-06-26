@@ -2,12 +2,39 @@ var user = JSON.parse(sessionStorage.getItem("user"));
 var rotaId = JSON.parse(sessionStorage.getItem("rotaId"));
 var map;
 var route = null;
+var starsRating = 0;
 
 window.onload = function () {
 
     document.getElementById("username").innerHTML = user.user_name;
     setupMap();
     loadInfoRota();
+    loadFeedbacks();
+
+    var stars = [...document.getElementsByClassName("rating__star")];
+
+    function executeRating(stars) {
+        const starClassActive = "rating__star fas fa-star";
+        const starClassInactive = "rating__star far fa-star";
+        const starsLength = stars.length;
+        let i;
+        stars.map((star) => {
+            star.onclick = () => {
+            i = stars.indexOf(star);
+    
+            if (star.className===starClassInactive) {
+                for (i; i >= 0; --i) {
+                    stars[i].className = starClassActive;
+                } 
+            } else {
+                for (i; i < starsLength; ++i) {
+                    stars[i].className = starClassInactive;
+                } 
+            }
+            };
+        });
+    }
+    executeRating(stars);
 
 }
 
@@ -98,4 +125,83 @@ function novarota() {
 
 function rotas() {
     window.location = "minhasrotas.html";
+}
+
+async function enviarComentario() {
+    var starsRating = [...document.getElementsByClassName("rating__star fas fa-star")];
+
+    let comentario = document.getElementById("comentario").value;
+
+    if (comentario != "" && starsRating.length != 0) {
+
+        let data = {
+            userId: user.user_id,
+            feedback: comentario,
+            estrelas: starsRating.length
+        }
+    
+        try {
+    
+            let result = await $.ajax({
+                url: "/api/rotas/"+rotaId+"/newFeedback",
+                method: "post",
+                data: JSON.stringify(data),
+                contentType: "application/json",
+                dataType: "json"
+            });
+
+            alert("Comentário enviado!");
+            window.location = "inforota.html";
+
+        } catch(err) {
+            console.log(err);
+        }
+
+    } 
+    else {
+        alert("Por favor coloque um comentário e uma quantidade de estrelas!");
+    }
+}
+
+async function loadFeedbacks() {
+
+    try {
+
+        let feedbacks = await $.ajax({
+            url: "/api/rotas/"+rotaId+"/feedbacks",
+            method: "get",
+            dataType: "json"
+        });
+        
+        let html = "";
+        for (let feedback of feedbacks) {
+
+            html += "<div class='box-feedback'>";
+            html += "<span>"+feedback.user_name+"</span>";
+            html += "<p>"+feedback.feedback+"</p>";
+
+            if (feedback.estrelas == 5) {
+                html += "<div><span class='rating__star2 fas fa-star'></span><span class='rating__star2 fas fa-star'></span><span class='rating__star2 fas fa-star'></span><span class='rating__star2 fas fa-star'></span><span class='rating__star2 fas fa-star'></span></div>";
+            }
+            else if (feedback.estrelas == 4) {
+                html += "<div><span class='rating__star2 fas fa-star'></span><span class='rating__star2 fas fa-star'></span><span class='rating__star2 fas fa-star'></span><span class='rating__star2 fas fa-star'></span><span class='rating__star2 far fa-star'></span></div>";
+            }
+            else if (feedback.estrelas == 3) {
+                html += "<div><span class='rating__star2 fas fa-star'></span><span class='rating__star2 fas fa-star'></span><span class='rating__star2 fas fa-star'></span><span class='rating__star2 far fa-star'></span><span class='rating__star2 far fa-star'></span></div>";
+            }
+            else if (feedback.estrelas == 2) {
+                html += "<div><span class='rating__star2 fas fa-star'></span><span class='rating__star2 fas fa-star'></span><span class='rating__star2 far fa-star'></span><span class='rating__star2 far fa-star'></span><span class='rating__star2 far fa-star'></span></div>";
+            }
+            else if (feedback.estrelas == 1) {
+                html += "<div><span class='rating__star2 fas fa-star'></span><span class='rating__star2 far fa-star'></span><span class='rating__star2 far fa-star'></span><span class='rating__star2 far fa-star'></span><span class='rating__star2 far fa-star'></span></div>";
+            }
+            html += "</div>";
+
+        }
+        document.getElementById("comentarios").innerHTML = html;
+
+    } catch(err) {
+        console.log(err);
+    }
+
 }

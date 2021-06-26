@@ -28,4 +28,18 @@ router.get('/:id', async function(req, res, next) {
     res.status(result.status).send(result.data);
 });
 
+router.post('/:id/newFeedback', async function(req, res, next) {
+    let id = req.params.id;
+    let body = req.body;
+    body.rotaId = id;
+    let result = await mRotas.newFeedback(body);
+    res.status(result.status).send(result.data);
+});
+
+router.get('/:id/feedbacks', async function(req, res, next) {
+    let id = req.params.id;
+    let result = await mRotas.getFeedbacks(id);
+    res.status(result.status).send(result.data);
+ });
+
 module.exports = router;
